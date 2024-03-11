@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import { useEffect, useState } from 'react';
-import { DisplayallJournalist } from "./connect";
+import { DisplayallJournalist, onDeleteJournalist } from "./connect";
 
 export const ListallJournalist = () => {
     const navi = useNavigate();
@@ -72,9 +72,15 @@ export const ListallJournalist = () => {
                                             <td>{data.online_offline}</td>
                                             <td>
                                                 <a className="btn btn-outline-primary" href={`updatejournalist/${data.serialno}`}>UPDATE</a>
-                                                <button className="btn btn-outline-danger">
+                                                <button className="btn btn-outline-danger"
+                                                    onClick={
+                                                        async () => {
+                                                            const t = await onDeleteJournalist(data.serialno);
+                                                            navi("/listalljournalist")
+                                                        }
+                                                    }>
                                                     Delete
-                                                </button>a.seria
+                                                </button>
                                             </td>
                                         </tr>
 

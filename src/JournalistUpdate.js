@@ -10,16 +10,16 @@ export let Updatejournalist = () => {
     const navi = useNavigate();
     const [process, setProcess] = useState({})
 
-    useEffect(() => {
-        callreadingvalues();
-    })
-
     const callreadingvalues = async () => {
 
         // setCustomervalues(read(mypos.who))
         const t = await onReadJournalist(myid);
         setProcess(t.data);
     }
+
+    useEffect(() => {
+        callreadingvalues();
+    }, [])
 
     const track = (agi) => {
         const { name, value } = agi.target

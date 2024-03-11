@@ -57,11 +57,20 @@ export const onJournalistUpdate = async (obj) => {
 }
 
 export const onReadJournalist = async (id) => {
-    const t = await axios.get(`${url}/readbyid/${id}`, {
+    const t = await axios.get(`${url}/read/${id}`, {
         headers: {
             "Authorization": `Basic ${sessionStorage.getItem('auth')}`
         }
     })
-    alert(t.data)
     return t;
+}
+
+export const onDeleteJournalist = async (id) => {
+    const t = await axios.delete(`${url}/deleteone/${id}`, {
+        headers: {
+            "Authorization": `Basic ${sessionStorage.getItem('auth')}`
+        }
+    });
+    return t;
+
 }
