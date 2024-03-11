@@ -1,0 +1,146 @@
+/* button{
+    width: 200px;
+
+/* } */
+/* #rb{ 
+       margin-right:200px;
+       margin-top:-5px;
+    color:green;
+     border-radius: 10px;  
+ width:180px;  
+ border-color:green; 
+ font-family:'Times New Roman', Times, serif;    
+ }  */
+
+#lb {
+
+
+    margin-left: 510px;
+    background-color: green;
+    font-family: 'Times New Roman', Times, serif;
+    border-color: green;
+    color: white;
+    border-radius: 10px;
+    height: 40px;
+    width: 300px;
+    margin-top: 1px;
+    margin-bottom: -50px;
+}
+
+#lb:hover {
+    border-color: white;
+    color: green;
+    background-color: white;
+    border-color: green;
+}
+
+#tamil {
+    color: blue
+}
+
+#from {
+
+    background-color: red;
+    border-radius: 3px;
+    border-style: dotted;
+}
+
+.body {
+    background-image: url(./images/OIP.jpeg);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: auto;
+    margin-top: -30px;
+
+
+}
+
+.home-label {
+    color: red;
+    text-align: center;
+}
+
+#frame {
+
+    /* border-style: double; */
+    container: 10%;
+    border-radius: 30px;
+    border-color: aqua;
+    border-color: blue;
+    width: 500px;
+    height: 450px;
+    margin-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 30px;
+    padding-left: 80px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 30px;
+    padding-left: 80px;
+    background-image: linear-gradient(yellowgreen, white);
+
+    justify-content: center;
+}
+
+#nav {
+    align-items: end;
+    background: linear-gradient(red, black, yellowgreen);
+    color: transparent;
+    background-clip: text;
+}
+
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin-top: 23px;
+    padding: -200px;
+
+}
+
+#head {
+    background: linear-gradient(to right, black, #ffff00, rgb(0, 213, 255));
+    background-clip: text;
+    font-weight: bold;
+    color: transparent;
+}
+
+#title {
+    text-align: end;
+    margin: 10px;
+}
+
+.form {
+    background-image: url(../my_project/images/univ.jpeg);
+    background-repeat: no-repeat;
+    background-size: 150%;
+    margin-top: 10%;
+    padding-left: 300%;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+}
+
+img {
+    border-radius: 90px;
+    width: 150px;
+    height: 150px;
+    padding: 30px 40px 30px 40px;
+    margin-left: 100px;
+}
+
+.heading {
+    align-items: baseline;
+    font-style: normal;
+}
+
+.image {
+    /* background-image: url(./images/logo.jpeg); */
+    background-repeat: no-repeat;
+    width: 500px;
+    height: 350px;
+    margin-left: 400px;
+    margin-top: -50px;
+
+}

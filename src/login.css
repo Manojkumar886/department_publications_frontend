@@ -1,0 +1,51 @@
+.login-btn {
+    font-family: 'Times New Roman', Times, serif;
+    border-bottom: #8ebdb1;
+    border-radius: none;
+    background-color: palegreen;
+    border-color: white;
+    color: green;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.login-title {
+    border-bottom: 3px solid blue;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    color: red;
+}
+
+.login-container {
+    background-color: springgreen;
+}
+
+.fo {
+    border-color: blue;
+}
+
+.form-control:focus {
+    border-color: aqua;
+    box-shadow: 0 0 0 0.1rem #8ebdb1;
+}
+
+#doc {
+    text-transform: uppercase;
+    text-decoration-line: underline;
+    color: rgb(107, 152, 62);
+}
+
+img {
+    width: 100%;
+    height: 435px;
+}
+
+h4 {
+    text-decoration: underline;
+    font-family: monospace;
+}
+
+header {
+    margin-top: 2rem !important;
+    color: blueviolet;
+}
