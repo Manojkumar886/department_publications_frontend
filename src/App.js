@@ -5,6 +5,8 @@ import { Login, Loginpage } from "./login";
 import { ListallJournalist } from "./Listalljournalist";
 import { NewjournalistForm } from "./newjournalist";
 import { Updatejournalist } from "./JournalistUpdate";
+import { ListallConference } from "./Listallconference";
+import { ConferenceForm } from "./newconference";
 
 export default function App() {
   return (
@@ -18,6 +20,8 @@ export default function App() {
                 <Route path="newjournalist" exact element={<NewjournalistForm />} />
                 <Route path="listalljournalist" exact element={<ListallJournalist />} />
                 <Route path="updatejournalist/:myid" exact element={<Updatejournalist />} />
+                <Route path="newconference" exact element={<ConferenceForm />} />
+                <Route path="listallconference" exact element={<ListallConference />} />
               </Routes>
             </BrowserRouter>
           </>

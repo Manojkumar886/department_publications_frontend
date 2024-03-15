@@ -74,3 +74,55 @@ export const onDeleteJournalist = async (id) => {
     return t;
 
 }
+
+// CONFERENCE 
+
+// create Conference
+export const onCreateConference = async (object) => {
+    const t = await axios.post(`${url}/conferencecreate`, object, {
+        headers: {
+            "Authorization": `Basic ${sessionStorage.getItem('auth')}`
+        }
+    });
+    return t;
+}
+
+// List Conference
+export const onListallConference = async () => {
+    const t = await axios.get(`${url}/conferencelist`,
+        {
+            headers: {
+                "Authorization": `Basic ${sessionStorage.getItem('auth')}`
+            }
+        });
+    return t;
+}
+
+// Read Conference
+export const onReadConference = async (id) => {
+    const t = await axios.get(`${url}/conferenceread/${id}`, {
+        headers: {
+            "Authorization": `Basic ${sessionStorage.getItem('auth')}`
+        }
+    })
+    return t;
+}
+
+// DeleteConference
+export const onDeleteConference = async (id) => {
+    const t = await axios.delete(`${url}/deleteconference/${id}`, {
+        headers: {
+            "Authorization": `Basic ${sessionStorage.getItem('auth')}`
+        }
+    });
+    return t;
+}
+
+export const onUpdateConference = async (obj) => {
+    const t = await axios.put(`${url}/updateconference`, obj, {
+        headers: {
+            "Authorization": `Basic ${sessionStorage.getItem('auth')}`
+        }
+    })
+    return t;
+}

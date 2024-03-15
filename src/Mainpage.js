@@ -78,7 +78,7 @@ export const Mainpage = () => {
                             />
                             <Carousel.Caption style={{ color: 'black', fontFamily: 'cursive' }}>
                                 <p>There are so many fabulous writing conferences and workshops out there!
-                                    <button>CLICK!</button>
+                                    <button><a href='listallconference'>CLICK!</a></button>
                                 </p>
                             </Carousel.Caption>
                         </Carousel.Item>
