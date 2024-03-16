@@ -1,23 +1,22 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import { useState } from 'react';
-import { onCreateConference } from './connect';
-export const ConferenceForm = () => {
-    const [conference, setConference] = useState({
+export const Booksform = () => {
+    const [books, setBooks] = useState({
         "serialno": 0,
         "author": "",
         "coauthor": "",
-        "conferencename": "",
+        "bookname": "",
         "publisher": "",
-        "pageno": "",
-        "volumnno": "",
-        "month": 0,
-        "yearofpublisher": 0,
+        "year": 0,
+        "isbn_issnno": "",
+        "publishercompanyname": "",
+        "edition": "",
         "sponsership": ""
     })
     const track = (agi) => {
         const { name, value } = agi.target
-        setConference(
+        setBooks(
             (old) => {
                 return {
                     ...old,
@@ -27,9 +26,8 @@ export const ConferenceForm = () => {
         )
     }
 
-    const register = async () => {
-        const temp = await onCreateConference(conference);
-        alert(temp.data);
+    const register = () => {
+
     }
 
     const reset = () => {
@@ -49,16 +47,16 @@ export const ConferenceForm = () => {
                                     <label className="form-label" >SERIALNO</label>
                                     <input type="number"
                                         onChange={track}
-                                        value={conference.serialno}
+                                        value={books.serialno}
                                         name="serialno"
                                         className="form-control" />
                                 </div>
                                 <div className="col">
-                                    <label className="form-label" >CONFERENCE NAME</label>
+                                    <label className="form-label" >BOOK NAME</label>
                                     <input type="text"
-                                        name="conferencename"
+                                        name="bookname"
                                         onChange={track}
-                                        value={conference.conferencename}
+                                        value={books.bookname}
                                         className="form-control" />
                                 </div>
                             </div>
@@ -69,7 +67,7 @@ export const ConferenceForm = () => {
                                 <input type="text"
                                     name="author"
                                     onChange={track}
-                                    value={conference.author}
+                                    value={books.author}
                                     className="form-control" />
                             </div>
                             <div className="mt-3 col">
@@ -77,7 +75,7 @@ export const ConferenceForm = () => {
                                 <input type="text"
                                     name="coauthor"
                                     onChange={track}
-                                    value={conference.coauthor}
+                                    value={books.coauthor}
                                     className="form-control" />
                             </div>
                         </div>
@@ -86,39 +84,39 @@ export const ConferenceForm = () => {
                             <input type="text"
                                 name="publisher"
                                 onChange={track}
-                                value={conference.publisher}
+                                value={books.publisher}
                                 className="form-control" />
                         </div>
                         <div className="mt-3">
-                            <label className="form-label" >VOLUMN NO</label>
-                            <input type="text"
-                                name="volumnno"
-                                onChange={track}
-                                value={conference.volumnno}
-                                className="form-control" />
-                        </div>
-                        <div className="mt-3">
-                            <label className="form-label" >PAGENO</label>
-                            <input type="text"
-                                name="pageno"
-                                onChange={track}
-                                value={conference.pageno}
-                                className="form-control" />
-                        </div>
-                        <div className="mt-3">
-                            <label className="form-label" >MONTH</label>
+                            <label className="form-label" >YEAR</label>
                             <input type="number"
-                                name="month"
+                                name="year"
                                 onChange={track}
-                                value={conference.month}
+                                value={books.year}
                                 className="form-control" />
                         </div>
                         <div className="mt-3">
-                            <label className="form-label" >YEAR OF PUBLISHING</label>
-                            <input type="number"
-                                name="yearofpublisher"
+                            <label className="form-label" >ISBN/ISSN NO</label>
+                            <input type="text"
+                                name="isbn_issnno"
                                 onChange={track}
-                                value={conference.yearofpublisher}
+                                value={books.isbn_issnno}
+                                className="form-control" />
+                        </div>
+                        <div className="mt-3">
+                            <label className="form-label" >PUBLISHER COMPANY NAME</label>
+                            <input type="text"
+                                name="publishercompanyname"
+                                onChange={track}
+                                value={books.publishercompanyname}
+                                className="form-control" />
+                        </div>
+                        <div className="mt-3">
+                            <label className="form-label" >EDITION</label>
+                            <input type="text"
+                                name="edition"
+                                onChange={track}
+                                value={books.edition}
                                 className="form-control" />
                         </div>
                         <div className="mt-3">
@@ -126,7 +124,7 @@ export const ConferenceForm = () => {
                             <input type="text"
                                 name="sponsership"
                                 onChange={track}
-                                value={conference.sponsership}
+                                value={books.sponsership}
                                 className="form-control" />
                         </div>
                         <div className="row justify-content-around mt-4">

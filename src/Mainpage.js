@@ -116,7 +116,7 @@ export const Mainpage = () => {
                             />
                             <Carousel.Caption style={{ color: 'black', fontFamily: 'cursive' }}>
                                 <p>“To learn to read is to light a fire; every syllable that is spelled out is a spark.”
-                                    <button>CLICK!</button>
+                                    <button><a href='listallbooks'>CLICK!</a></button>
                                 </p>
                             </Carousel.Caption>
                         </Carousel.Item>

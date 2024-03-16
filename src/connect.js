@@ -126,3 +126,17 @@ export const onUpdateConference = async (obj) => {
     })
     return t;
 }
+
+
+
+// BOOKs
+
+export const onbooksList = async () => {
+    const t = await axios.get(`http://localhost:8080/department_publications/booklistall`, {
+        headers: {
+            "Authorization": `Basic ${sessionStorage.getItem("auth")}`
+        }
+    })
+
+    return t;
+}
