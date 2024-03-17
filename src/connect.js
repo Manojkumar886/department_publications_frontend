@@ -72,7 +72,16 @@ export const onDeleteJournalist = async (id) => {
         }
     });
     return t;
+}
 
+export const onfilterJounalist = async (author) => {
+    const t = await axios.get(`${url}/findbyauthor/${author}`,
+        {
+            headers: {
+                "Authorization": `Basic ${sessionStorage.getItem("auth")}`
+            }
+        })
+    return t;
 }
 
 // CONFERENCE 
@@ -131,6 +140,7 @@ export const onUpdateConference = async (obj) => {
 
 // BOOKs
 
+// LIST
 export const onbooksList = async () => {
     const t = await axios.get(`http://localhost:8080/department_publications/booklistall`, {
         headers: {
@@ -139,4 +149,27 @@ export const onbooksList = async () => {
     })
 
     return t;
+}
+
+
+// CREATE
+export const onbooksCreate = async (object) => {
+
+    const t = await axios.post(`${url}/bookscreate`, object, {
+        headers: {
+            "Authorization": `Basic ${sessionStorage.getItem("auth")}`
+        }
+    });
+
+    return t;
+}
+// delete
+export const onbooksDelete = async (id) => {
+    const t = await axios.delete(`${url}/bookdelete/${id}`,
+        {
+            headers: {
+                "Authorization": `Basic ${sessionStorage.getItem("auth")}`
+            }
+        })
+
 }

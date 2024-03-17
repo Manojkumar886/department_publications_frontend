@@ -1,8 +1,15 @@
-import { useNavigate } from "react-router";
+import { json, useNavigate } from "react-router";
 import { useEffect, useState } from 'react';
-import { DisplayallJournalist, onDeleteJournalist } from "./connect";
+import { DisplayallJournalist, onDeleteJournalist, onfilterJounalist } from "./connect";
 
 export const ListallJournalist = () => {
+
+    const [searchvalue, setSearchvalue] = useState("");
+
+    const getvalue = (get) => {
+        setSearchvalue(get.target.value);
+    }
+
     const navi = useNavigate();
     const [allvalues, setAllvalues] = useState([])
 
@@ -11,9 +18,7 @@ export const ListallJournalist = () => {
         setAllvalues(temp.data);
     }
 
-    useEffect(() => {
-        myjournalistvalues();
-    })
+
     return (
         <>
             <div className='container-fluid'>
@@ -34,8 +39,30 @@ export const ListallJournalist = () => {
             </div>
             <div className="container mt-5">
                 <button className="btn btn-outline-warning"><a href="newjournalist">NEW JOURNALIST</a></button>
+                <div className="float-end">
+                    <input className="form-control"
+                        style={{ width: '300px' }}
+                        onChange={getvalue}
+                        placeholder="Enter your author name...!"
+                    />
+                    <button className="btn btn-outline-warning"
+                        onClick={
+                            async () => {
+                                const t = await onfilterJounalist(searchvalue);
+                                setAllvalues(t.data);
+                                // alert(JSON.stringify(t.data))
+                            }
+                        }>SEARCH</button>
+                </div>
             </div>
+            <br />
+            <br />
             <div className="container mt-2" >
+                <button
+                    className="btn btn-outline-primary"
+                    onClick={() => {
+                        myjournalistvalues();
+                    }}>SHOWALL</button>
                 <div className="row justify-content-center">
                     <div className="table-responsive-md " style={{ overflowX: 'auto' }}>
                         <table className=" table table-striped table-warning">

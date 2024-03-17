@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react';
 import { onDeleteConference, onListallConference } from "./connect";
 
 export const ListallConference = () => {
+
+
+    const [sno, setSno] = useState(1);
     const navi = useNavigate();
     const [allvalues, setAllvalues] = useState([])
 
@@ -56,10 +59,10 @@ export const ListallConference = () => {
                             </thead>
                             <tbody>
                                 {
-                                    allvalues.map((data) => (
+                                    allvalues.map((data, sno) => (
                                         <tr>
                                             <td>
-                                                <a className="btn btn-outline-primary">{data.serialno}</a>
+                                                {sno + 1}
                                             </td>
                                             <td>{data.author}</td>
                                             <td>{data.coauthor}</td>
@@ -71,7 +74,7 @@ export const ListallConference = () => {
                                             <td>{data.yearofpublisher}</td>
                                             <td>{data.sponsership}</td>
                                             <td>
-                                                <a className="btn btn-outline-primary" href={``}>UPDATE</a>
+                                                <a className="btn btn-outline-primary" href={`updateconference/${data.serialno}`}>UPDATE</a>
                                                 <button className="btn btn-outline-danger"
                                                     onClick={async () => {
                                                         const t = await onDeleteConference(data.serialno);

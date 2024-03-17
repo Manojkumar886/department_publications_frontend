@@ -1,27 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import { useState } from 'react';
-import { onbooksCreate } from './connect';
-import { useNavigate } from 'react-router';
-export const Booksform = () => {
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router';
+import { onReadConference, onUpdateConference } from './connect';
+
+export const Conferenceupdate = () => {
 
     const navi = useNavigate();
-
-    const [books, setBooks] = useState({
-        "serialno": 0,
-        "author": "",
-        "coauthor": "",
-        "bookname": "",
-        "publisher": "",
-        "year": 0,
-        "isbn_issnno": "",
-        "publishercompanyname": "",
-        "edition": "",
-        "sponsership": ""
+    const [conference, setConference] = useState({
     })
     const track = (agi) => {
         const { name, value } = agi.target
-        setBooks(
+        setConference(
             (old) => {
                 return {
                     ...old,
@@ -31,9 +21,20 @@ export const Booksform = () => {
         )
     }
 
-    const register = async () => {
-        await onbooksCreate(books);
-        navi("/listallbooks")
+    const { id } = useParams();
+
+    const setvalues = async () => {
+        const t = await onReadConference(id);
+        setConference(t.data);
+    }
+
+    useEffect(() => {
+        setvalues();
+    }, [])
+
+    const update = async () => {
+        await onUpdateConference(conference);
+        navi("/listallconference")
     }
 
     const reset = () => {
@@ -46,23 +47,23 @@ export const Booksform = () => {
                 <span id='center1'></span>
                 <div className="row justify-content-center">
                     <div className="col-lg-8 col-md-0 col-sm-12 shadow-lg p-3 " id="center">
-                        <h4 className="text-center mt-5 mb-5" id='center2'>BOOK FORM</h4>
+                        <h4 className="text-center mt-5 mb-5" id='center2'>CONFERENCE FORM</h4>
                         <div className="row justify-content-center " >
                             <div className="row">
                                 <div className="col">
                                     <label className="form-label" >SERIALNO</label>
                                     <input type="number"
                                         onChange={track}
-                                        value={books.serialno}
+                                        value={conference.serialno}
                                         name="serialno"
                                         className="form-control" />
                                 </div>
                                 <div className="col">
-                                    <label className="form-label" >BOOK NAME</label>
+                                    <label className="form-label" >CONFERENCE NAME</label>
                                     <input type="text"
-                                        name="bookname"
+                                        name="conferencename"
                                         onChange={track}
-                                        value={books.bookname}
+                                        value={conference.conferencename}
                                         className="form-control" />
                                 </div>
                             </div>
@@ -73,7 +74,7 @@ export const Booksform = () => {
                                 <input type="text"
                                     name="author"
                                     onChange={track}
-                                    value={books.author}
+                                    value={conference.author}
                                     className="form-control" />
                             </div>
                             <div className="mt-3 col">
@@ -81,7 +82,7 @@ export const Booksform = () => {
                                 <input type="text"
                                     name="coauthor"
                                     onChange={track}
-                                    value={books.coauthor}
+                                    value={conference.coauthor}
                                     className="form-control" />
                             </div>
                         </div>
@@ -90,39 +91,39 @@ export const Booksform = () => {
                             <input type="text"
                                 name="publisher"
                                 onChange={track}
-                                value={books.publisher}
+                                value={conference.publisher}
                                 className="form-control" />
                         </div>
                         <div className="mt-3">
-                            <label className="form-label" >YEAR</label>
+                            <label className="form-label" >VOLUMN NO</label>
+                            <input type="text"
+                                name="volumnno"
+                                onChange={track}
+                                value={conference.volumnno}
+                                className="form-control" />
+                        </div>
+                        <div className="mt-3">
+                            <label className="form-label" >PAGENO</label>
+                            <input type="text"
+                                name="pageno"
+                                onChange={track}
+                                value={conference.pageno}
+                                className="form-control" />
+                        </div>
+                        <div className="mt-3">
+                            <label className="form-label" >MONTH</label>
                             <input type="number"
-                                name="year"
+                                name="month"
                                 onChange={track}
-                                value={books.year}
+                                value={conference.month}
                                 className="form-control" />
                         </div>
                         <div className="mt-3">
-                            <label className="form-label" >ISBN/ISSN NO</label>
-                            <input type="text"
-                                name="isbn_issnno"
+                            <label className="form-label" >YEAR OF PUBLISHING</label>
+                            <input type="number"
+                                name="yearofpublisher"
                                 onChange={track}
-                                value={books.isbn_issnno}
-                                className="form-control" />
-                        </div>
-                        <div className="mt-3">
-                            <label className="form-label" >PUBLISHER COMPANY NAME</label>
-                            <input type="text"
-                                name="publishercompanyname"
-                                onChange={track}
-                                value={books.publishercompanyname}
-                                className="form-control" />
-                        </div>
-                        <div className="mt-3">
-                            <label className="form-label" >EDITION</label>
-                            <input type="text"
-                                name="edition"
-                                onChange={track}
-                                value={books.edition}
+                                value={conference.yearofpublisher}
                                 className="form-control" />
                         </div>
                         <div className="mt-3">
@@ -130,11 +131,11 @@ export const Booksform = () => {
                             <input type="text"
                                 name="sponsership"
                                 onChange={track}
-                                value={books.sponsership}
+                                value={conference.sponsership}
                                 className="form-control" />
                         </div>
                         <div className="row justify-content-around mt-4">
-                            <button className="btn btn-outline-success col-3 ms-3" onClick={register}  >Register</button>
+                            <button className="btn btn-outline-success col-3 ms-3" onClick={update}  >UPDATE</button>
                             <button className="btn btn-outline-danger col-3 me-3" onClick={reset} type="reset" value="Reset" >Reset</button>
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import { useEffect, useState } from 'react';
-import { onbooksList } from "./connect";
+import { onbooksDelete, onbooksList } from "./connect";
 
 
 export const Listallbooks = () => {
@@ -35,7 +35,7 @@ export const Listallbooks = () => {
                 <h2 className="text-warning mt-4 fs-1 text-center text-decoration-underline" style={{ fontFamily: 'fantasy' }}>BOOK DETAILS</h2>
             </div>
             <div className="container mt-5">
-                <button className="btn btn-outline-warning"><a href="newconference">NEW BOOK</a></button>
+                <button className="btn btn-outline-warning"><a href="newbooks">NEW BOOK</a></button>
             </div>
             <div className="container mt-2" >
                 <div className="row justify-content-center">
@@ -75,7 +75,14 @@ export const Listallbooks = () => {
                                             <td>
                                                 <button
                                                     className="btn btn-outline-secondary">UPDATE</button>
-                                                <button className="btn btn-outline-danger">DELETE</button>
+                                                <button className="btn btn-outline-danger"
+                                                    onClick={
+                                                        async () => {
+                                                            const t = await onbooksDelete(data.serialno);
+                                                            navi("/listallbooks");
+                                                            return t;
+                                                        }
+                                                    }>DELETE</button>
                                             </td>
                                         </tr>
 
