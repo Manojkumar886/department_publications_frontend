@@ -91,7 +91,7 @@ export const Mainpage = () => {
                             />
                             <Carousel.Caption style={{ color: 'black', fontFamily: 'cursive' }}>
                                 <p>“Knowing is not enough; we must apply. Willing is not enough we must do.”
-                                    <button>CLICK!</button>
+                                    <button><a href='listallseminar'>CLICK!</a></button>
                                 </p>
                             </Carousel.Caption>
                         </Carousel.Item>

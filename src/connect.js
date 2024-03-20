@@ -171,5 +171,62 @@ export const onbooksDelete = async (id) => {
                 "Authorization": `Basic ${sessionStorage.getItem("auth")}`
             }
         })
+    return t;
+}
 
+
+// SEMINAR 
+
+export const onListseminar = async () => {
+
+    const t = await axios.get(`${url}/listallseminar`, {
+        headers: {
+            "Authorization": `Basic ${sessionStorage.getItem("auth")}`
+        }
+    });
+    return t;
+}
+
+
+export const onCreateseminar = async (object) => {
+    const t = await axios.post(`${url}/createseminar`, object, {
+        headers: {
+            "Authorization": `Basic ${sessionStorage.getItem("auth")}`
+        }
+    });
+    return t;
+}
+
+
+export const onDeleteseminar = async (id) => {
+    const t = await axios.delete(`${url}/deleteseminar/${id}`, {
+        headers: {
+            "Authorization": `Basic ${sessionStorage.getItem("auth")}`
+        }
+    })
+
+    return t;
+}
+
+
+
+export const onUpdateseminar = async (object) => {
+    const t = await axios.put(`${url}/updateseminar`, object, {
+        headers: {
+            "Authorization": `Basic ${sessionStorage.getItem("auth")}`
+        }
+    })
+
+    return t;
+}
+
+
+export const onReadseminar = async (id) => {
+    const t = await axios.get(`${url}/readseminar/${id}`,
+        {
+            headers: {
+                "Authorization": `Basic ${sessionStorage.getItem("auth")}`
+            }
+        })
+    return t;
 }

@@ -10,6 +10,9 @@ import { ConferenceForm } from "./newconference";
 import { Listallbooks } from "./ListallBooks";
 import { Booksform } from "./newbooks";
 import { Conferenceupdate } from "./ConferenceUpdate";
+import { Listallseminar } from "./Listallseminar";
+import { SeminarForm } from "./newseminar";
+import { Updateseminar } from "./SeminarUpdate";
 
 export default function App() {
   return (
@@ -28,6 +31,9 @@ export default function App() {
                 <Route path="listallbooks" exact element={<Listallbooks />} />
                 <Route path="newbooks" exact element={<Booksform />} />
                 <Route path="updateconference/:id" exact element={<Conferenceupdate />} />
+                <Route path="listallseminar" exact element={<Listallseminar />} />
+                <Route path="newseminar" exact element={<SeminarForm />} />
+                <Route path="updateseminar/:id" exact element={<Updateseminar />} />
               </Routes>
             </BrowserRouter>
           </>
